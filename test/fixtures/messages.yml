@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  sub: MyString
+  comment: MyString
+  host: MyString
+  pwd: MyString
+  delflg: false
+  "no": 1
+
+
+two:
+  name: MyString
+  email: MyString
+  sub: MyString
+  comment: MyString
+  host: MyString
+  pwd: MyString
+  delflg: false
+  "no": 2

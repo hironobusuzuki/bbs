@@ -1,0 +1,57 @@
+<div align="center">
+<h1>掲示板</h1>
+<hr width="90%">
+  errors exists ? : <%= @message.errors.present? %>
+<hr width="90%">
+</div>
+<blockquote>
+
+
+<%= form_for(@message) do |m| %>
+<table class="regfm">
+<tr>
+	<th>おなまえ</th>
+	<td><%= m.text_field :name, :size => '28' %></td>
+</tr><tr>
+	<th>Ｅメール</th>
+	<td><%= m.text_field :email, :size => '28' %></td>
+</tr><tr>
+	<th>タイトル</th>
+	<td>
+    	<%= m.text_field :sub, :size => '36', :id=>'sub' %>
+    	<%= m.submit "送信する" %><input type="reset" value="リセット">
+  </td>
+</tr><tr>
+	<th colspan="2">
+    	メッセージ<br>
+		<%= m.text_area :comment, :size => "56x7", :id=>'comment' %>
+	</th>
+</tr><tr>
+	<th>削除キー</th>
+	<td class="small">
+		<%= m.password_field :pwd, :size => '8', :maxlength => '8' %>
+		(英数字で8文字以内)
+	</td>
+</tr>
+</table>
+<% end %>
+</blockquote>
+
+
+<dl class="log">
+
+<% @messages.each do |message| %>
+<dt><hr>[<b><%= message.no %></b>] <b class="subcol"><%= message.sub %></b>
+投稿者：<b><a href="mailto:<%= message.email %>" target="_blank"><%= message.name %><a></b> 投稿日：<%= message.created_at.strftime('%Y/%m/%d(%a) %H:%M') %> &nbsp; [<%= link_to '返信', message, :remote=>true %>]</dt>
+<dd><%= message.comment %></dd>
+<% end %>
+
+<dt><hr>
+</dl>
+
+
+<%= form_for(@message, :html => {:method => :delete}) do |m| %>
+記事No<%= m.text_field :no, :size => '3' %>
+削除キー<%= m.password_field :pwd, :size => '8', :maxlength => '8' %>
+<%= m.submit "削除"  %>
+<% end %>

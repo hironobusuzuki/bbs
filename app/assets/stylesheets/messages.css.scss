@@ -1,0 +1,13 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body,td,th { font-size:80%; background:#f0f0f0; font-family:"MS PGothic","Osaka",Arial,sans-serif; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+h1 { font-size:200%; margin-bottom:0; color:#666; }
+td.small { font-size:80%; }
+b.subcol { color:#008040; }
+dl.log dd { margin-top:1em; }
+table.regfm td,th { padding:0.1em; white-space:nowrap; text-align:left; }
+p.url { margin:1em 0 0 0; }
+img.capt { vertical-align:middle; }
