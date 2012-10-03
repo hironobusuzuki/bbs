@@ -24,7 +24,7 @@ class Message < ActiveRecord::Base
     Message.transaction do
 
       # SQLLiteだとfor updateできない→TODO max_noの一意性の確保（未検討）
-      message = Message.find(:first, :conditions => {:delflg => false}, :order=>'no desc', :lock => true)
+      message = Message.find(:first, :conditions => {:delflg => false}, :order=>"no desc", :lock => true)
 
     end
 
@@ -39,11 +39,19 @@ class Message < ActiveRecord::Base
 
   end
 
-  # fake authenticate
+  # authenticate
   def self.authenticate(del_pwd, del_no)
 
+    message = Message.find(:first, :conditions => {:delflg => false, :no =>del_no, :pwd=>fake_encrpt(del_pwd)}, :lock => true)
+    message.present? ? true : false
+
+  end
+
+  # is setting pwd
+  def self.set_pwd?(del_no)
+
     message = Message.find(:first, :conditions => {:delflg => false, :no =>del_no}, :lock => true)
-    message.present? && (fake_encrpt(del_pwd) == message.pwd) ? true : false
+    message.present? ? true : false
 
   end
 

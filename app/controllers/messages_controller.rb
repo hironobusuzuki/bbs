@@ -3,15 +3,15 @@
 class MessagesController < ApplicationController
 
   # filter
-  before_filter :is_ajax_request, :only => [ :show ]
-  before_filter :can_delete_message, :only => [ :destroy ]
+  before_filter :ajax_request?, :only => [ :show ]
+  before_filter :delete_message?, :only => [ :destroy ]
 
   # action
   # display bbs
   # GET /messages
   def index
 
-    @messages = Message.find(:all, :conditions => {:delflg => false}, :order=>'no desc')
+    @messages = Message.find(:all, :conditions => {:delflg => false}, :order=>"no desc")
     @message = Message.new
 
   end
@@ -39,10 +39,10 @@ class MessagesController < ApplicationController
     Message.transaction do
 
       # SQLLiteだとfor updateできない→TODO max_noの一意性の確保（未検討）
-      message = Message.find(:first, :conditions => {:delflg => false, :no =>params[:message]['no']}, :lock => true)
+      message = Message.find(:first, :conditions => {:delflg => false, :no =>params[:message]["no"]}, :lock => true)
       Message.update(message.id, :delflg => true, :no => -1)
 
-      messages = Message.find(:all, :conditions => {:delflg => false}, :order=>'no')
+      messages = Message.find(:all, :conditions => {:delflg => false}, :order=>"no")
       i = 1
       messages.each do |message|
         message.no = i
@@ -71,18 +71,35 @@ class MessagesController < ApplicationController
 
   # method
   # is request ajax ?
-  def is_ajax_request
+  def ajax_request?
 
     redirect_to :action => 'index' unless request.xhr?
 
   end
 
   # can delte a message ?
-  def can_delete_message
+  def delete_message?
 
-    return redirect_to :action => 'index' if params[:message]['no'].blank? || params[:message]['pwd'].blank?
+    no = params[:message]["no"]
+    pwd = params[:message]["pwd"]
 
-    redirect_to :action => 'index' unless Message.authenticate(params[:message]['pwd'], params[:message]['no'])
+    # need to fill in delete posted no and pwd
+    if no.blank? || pwd.blank?
+      logger.info "the no and pwd were not filled in"
+      return redirect_to :action => 'index' 
+    end
+
+    # don't delete the pwd without settting
+    unless Message.set_pwd? no
+      logger.info "the pwd wasn't settting"
+      return redirect_to :action => 'index'
+    end
+
+    # need to the pwd of form  equal to the pwd of model
+    unless Message.authenticate(pwd, no)
+      logger.info "not authenticated"
+      redirect_to :action => 'index'
+    end
 
   end
 

@@ -16853,3 +16853,486 @@ Served asset /messages.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 00:13:32 +0900
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-04 08:34:23 +0900
+Connecting to database specified by database.yml
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 735ms (Views: 567.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:34:25 +0900
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:25 +0900
+Served asset /jquery.js - 304 Not Modified (68ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:26 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:26 +0900
+Served asset /application.js - 304 Not Modified (64ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:26 +0900
+Served asset /messages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:34:26 +0900
+Served asset /messages.css - 304 Not Modified (2ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"name"=>"鈴木宏伸", "email"=>"hoge@fuga.co.jp", "sub"=>"あああ", "comment"=>"aaaaaaaaaaaaaaa", "pwd"=>"11111111"}, "commit"=>"送信する"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `host`
+  [1m[35mSQL (18.0ms)[0m  INSERT INTO "messages" ("comment", "created_at", "delflg", "email", "host", "name", "no", "pwd", "sub", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["comment", "aaaaaaaaaaaaaaa"], ["created_at", Wed, 03 Oct 2012 23:34:39 UTC +00:00], ["delflg", false], ["email", "hoge@fuga.co.jp"], ["host", "127.0.0.1"], ["name", "鈴木宏伸"], ["no", 16], ["pwd", "7nmXbJOA1eM3/BwJXs6MjyL5HzBs7rFh+lH+zt4sS6E="], ["sub", "あああ"], ["updated_at", Wed, 03 Oct 2012 23:34:39 UTC +00:00]]
+  [1m[36m (127.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 221ms (ActiveRecord: 145.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (1.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:34:39 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:35:13 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"15", "pwd"=>"11111111"}, "commit"=>"削除"}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `set_pwd?' for #<MessagesController:0x3935bc8>):
+  app/controllers/messages_controller.rb:90:in `delete_message?'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:35:57 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"15", "pwd"=>"11111111"}, "commit"=>"削除"}
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 15 LIMIT 1[0m
+  [1m[35mMessage Load (1.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 15 AND "messages"."pwd" = '7nmXbJOA1eM3/BwJXs6MjyL5HzBs7rFh+lH+zt4sS6E=' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 15 LIMIT 1
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 33]]
+  [1m[35m (1.0ms)[0m  UPDATE "messages" SET "delflg" = 't', "no" = -1, "updated_at" = '2012-10-03 23:35:57.972020' WHERE "messages"."id" = 33
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no[0m
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 27]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 29]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 32]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 34]]
+  [1m[36m (1.0ms)[0m  [1mUPDATE "messages" SET "no" = 15, "updated_at" = '2012-10-03 23:35:58.104028' WHERE "messages"."id" = 34[0m
+  [1m[35m (65.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 237ms (ActiveRecord: 69.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:35:58 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2012-10-04 08:37:19 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"name"=>"鈴木宏伸", "email"=>"hoge@fuga.co.jp", "sub"=>"not deleted", "comment"=>"not deleted\r\nnot deleted\r\nnot deleted", "pwd"=>""}, "commit"=>"送信する"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `host`
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "messages" ("comment", "created_at", "delflg", "email", "host", "name", "no", "pwd", "sub", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["comment", "not deleted\r\nnot deleted\r\nnot deleted"], ["created_at", Wed, 03 Oct 2012 23:37:19 UTC +00:00], ["delflg", false], ["email", "hoge@fuga.co.jp"], ["host", "127.0.0.1"], ["name", "鈴木宏伸"], ["no", 16], ["pwd", "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="], ["sub", "not deleted"], ["updated_at", Wed, 03 Oct 2012 23:37:19 UTC +00:00]]
+  [1m[36m (69.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 115ms (ActiveRecord: 72.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:37:19 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 37ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:37:20 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:37:20 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:20 +0900
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:20 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:20 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:20 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"16", "pwd"=>"11111111"}, "commit"=>"削除"}
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 16 LIMIT 1[0m
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 16 AND "messages"."pwd" = '7nmXbJOA1eM3/BwJXs6MjyL5HzBs7rFh+lH+zt4sS6E=' LIMIT 1
+Redirected to http://localhost:3000/messages
+Filter chain halted as :delete_message? rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:37:30 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:41:05 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"", "pwd"=>""}, "commit"=>"削除"}
+the no and pwd were not filled in
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 0 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 3ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/messages_controller.rb:43:in `block in destroy'
+  app/controllers/messages_controller.rb:39:in `destroy'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.0ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"", "pwd"=>""}, "commit"=>"削除"}
+the no and pwd were not filled in
+Redirected to http://localhost:3000/messages
+Filter chain halted as :delete_message? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 37ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:46:54 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"1111111111111111", "pwd"=>""}, "commit"=>"削除"}
+the no and pwd were not filled in
+Redirected to http://localhost:3000/messages
+Filter chain halted as :delete_message? rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 36ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:19 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"16", "pwd"=>""}, "commit"=>"削除"}
+the no and pwd were not filled in
+Redirected to http://localhost:3000/messages
+Filter chain halted as :delete_message? rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:42 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:43 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:47:58 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"14", "pwd"=>"11111111"}, "commit"=>"削除"}
+  [1m[35mMessage Load (1.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 14 LIMIT 1
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 14 AND "messages"."pwd" = '7nmXbJOA1eM3/BwJXs6MjyL5HzBs7rFh+lH+zt4sS6E=' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 14 LIMIT 1[0m
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 32]]
+  [1m[36m (1.0ms)[0m  [1mUPDATE "messages" SET "delflg" = 't', "no" = -1, "updated_at" = '2012-10-03 23:47:58.658241' WHERE "messages"."id" = 32[0m
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 27]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 29]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 34]]
+  [1m[36m (0.0ms)[0m  [1mUPDATE "messages" SET "no" = 14, "updated_at" = '2012-10-03 23:47:58.707244' WHERE "messages"."id" = 34[0m
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 35]]
+  [1m[36m (1.0ms)[0m  [1mUPDATE "messages" SET "no" = 15, "updated_at" = '2012-10-03 23:47:58.709244' WHERE "messages"."id" = 35[0m
+  [1m[35m (70.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 74.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:47:58 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:47:58 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:47:58 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:59 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:59 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:59 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:47:59 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/messages" for 127.0.0.1 at 2012-10-04 08:48:53 +0900
+Processing by MessagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"udoisi6jC1+vMCKPySVH09hcWz86A2enKHrK5hosoj8=", "message"=>{"no"=>"11", "pwd"=>"11111111"}, "commit"=>"削除"}
+  [1m[35mMessage Load (1.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 11 LIMIT 1
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' AND "messages"."no" = 11 AND "messages"."pwd" = '7nmXbJOA1eM3/BwJXs6MjyL5HzBs7rFh+lH+zt4sS6E=' LIMIT 1[0m
+not authenticated
+Redirected to http://localhost:3000/messages
+Filter chain halted as :delete_message? rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 08:48:53 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 08:48:53 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 08:48:53 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 08:48:54 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 08:48:54 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 08:48:54 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 08:48:54 +0900
+Served asset /application.js - 304 Not Modified (0ms)
