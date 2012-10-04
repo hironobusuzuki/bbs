@@ -23463,3 +23463,248 @@ Processing by MessagesController#show as JS
 １&lt;br /&gt;２&lt;br /&gt;３&lt;br /&gt;４
   Rendered messages/show.js.erb (0.0ms)
 Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:02:55 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (13.0ms)
+Compiled bootstrap-responsive.css  (0ms)  (pid 4276)
+Compiled bootstrap-responsive.min.css  (0ms)  (pid 4276)
+Compiled bootstrap.css  (3ms)  (pid 4276)
+Compiled bootstrap.min.css  (0ms)  (pid 4276)
+Compiled application.css  (750ms)  (pid 4276)
+Compiled bootstrap.js  (0ms)  (pid 4276)
+Compiled bootstrap.min.js  (0ms)  (pid 4276)
+Compiled application.js  (131ms)  (pid 4276)
+Completed 200 OK in 1761ms (Views: 1759.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-04 11:02:56 +0900
+Served asset /bootstrap.css - 200 OK (43ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /bootstrap.min.css - 200 OK (41ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /bootstrap-responsive.css - 200 OK (21ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /bootstrap-responsive.min.css - 200 OK (18ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /application.css - 304 Not Modified (79ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /bootstrap.js - 200 OK (17ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /bootstrap.min.js - 200 OK (5ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 11:02:57 +0900
+Served asset /application.js - 304 Not Modified (84ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:07:07 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (1.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:07:07 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:07:07 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 11:07:07 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-04 11:07:07 +0900
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-10-04 11:07:08 +0900
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 11:07:08 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 11:07:08 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:08:08 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 210ms (Views: 207.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:08 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:08:08 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:08 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/messages/38" for 127.0.0.1 at 2012-10-04 11:08:18 +0900
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"38"}
+request is not ajax
+Redirected to http://localhost:3000/messages
+Filter chain halted as :ajax_request? rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:08:18 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (1.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:08:19 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:19 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:19 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/messages/38" for 127.0.0.1 at 2012-10-04 11:08:21 +0900
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"38"}
+request is not ajax
+Redirected to http://localhost:3000/messages
+Filter chain halted as :ajax_request? rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:08:21 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (1.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc[0m
+  Rendered messages/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:08:21 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:21 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:21 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-04 11:08:53 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/messages/38" for 127.0.0.1 at 2012-10-04 11:08:57 +0900
+Processing by MessagesController#show as JS
+  Parameters: {"id"=>"38"}
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", "38"]]
+１&lt;br /&gt;２&lt;br /&gt;３&lt;br /&gt;４
+  Rendered messages/show.js.erb (0.0ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2012-10-04 11:10:31 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."delflg" = 'f' ORDER BY no desc
+  Rendered messages/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 148ms (Views: 146.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2012-10-04 11:10:31 +0900
+Served asset /messages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-04 11:10:31 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-04 11:10:31 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/messages/38" for 127.0.0.1 at 2012-10-04 11:10:32 +0900
+Processing by MessagesController#show as JS
+  Parameters: {"id"=>"38"}
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", "38"]]
+１&lt;br /&gt;２&lt;br /&gt;３&lt;br /&gt;４
+  Rendered messages/show.js.erb (0.0ms)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms)
