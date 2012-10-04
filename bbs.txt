@@ -1,0 +1,110 @@
+project:bbs
+	controller:messages
+		action:index
+	model:mseeage
+
+
+rails new bbs
+rails generate controller messages
+rails generate model message  name:string email:string sub:string comment:string host:string pwd:string delflg:boolean
+rake db:migrate
+rails dbconsole
+PRAGMA TABLE_INFO(messages);
+.quit
+rake db:rollback
+rails server -p 3001
+rake db:seed
+rails generate migration AddNoToMessages no:integer
+rake db:version
+rake test:units
+rails dbconsole development
+rails dbconsole test
+rails dbconsole production
+rake db:migrate RAILS_ENV=test
+
+id:integer→自動
+no:integer
+name:string
+email:string
+sub:string
+comment:string
+host:string
+pwd:string
+delflg:boolean
+created_on:timestamp→自動
+updated_on:timestamp→自動
+
+
+http://blog.livedoor.jp/satoyansoft/archives/65452377.html
+http://d.hatena.ne.jp/masaki0303/20110406
+http://www.atmarkit.co.jp/fcoding/rails/articles/rails3/03/rails303a.html
+http://d.hatena.ne.jp/nobyu/20090119/1232376042
+ttp://www.gesource.jp/weblog/?p=454
+
+
+How do you pass a Validation error to a view using redirect_to ?
+http://www.ruby-forum.com/topic/174611
+flashと、リダイレクトとレンダリング
+http://d.hatena.ne.jp/LukeSilvia/20070711/1184191946
+flashの使い方　～Railsの基礎
+http://d.hatena.ne.jp/kiyo560808/20110913/1315882887
+RailsでDeviseを使ってみた
+http://kitbc.s41.xrea.com/main/?use_devise
+Ruby on Rails 3 redirect_toのnotice
+http://ameblo.jp/virtangelo/entry-10973224333.html
+Rails3.2ってどう変わるの？
+http://www.slideshare.net/takafumionaka/rails32
+NOT NULLなどの制約の設定
+http://www.rubylife.jp/rails/model/index9.html
+Rails でユニーク制約
+http://tmtms.hatenablog.com/entry/20120602/rails_unique
+RubyOnRails を使ってみる 【第 4 回】 ActionPack
+http://jp.rubyist.net/magazine/?0008-RubyOnRails
+Ruby on Rails/セッションを使う
+http://yakinikunotare.boo.jp/orebase/index.php?Ruby%20on%20Rails%2F%A5%BB%A5%C3%A5%B7%A5%E7%A5%F3%A4%F2%BB%C8%A4%A6
+Rails 3のmodelに関してメモ
+http://d.hatena.ne.jp/h-kageyu/20120321/1332312955
+validationのエラーメッセージ（error_messages_for）の日本語化
+http://d.hatena.ne.jp/LukeSilvia/20080110/1199989797#sol1
+Rails 3 の I18n について
+http://d.hatena.ne.jp/willnet/20100430/1272618929
+[Rails3] 国際化 I18n のまとめ（その３：辞書ファイルの使い方） ※
+http://rails3try.blogspot.jp/2012/01/rails3-i18n.html
+Railsでページネーションを実装する（kaminari）
+http://whitech0c0late.hatenablog.com/entry/20120129/1327855145
+Kaminariの使い方 Rails3時代のpaginationの標準候補
+http://memo.yomukaku.net/entries/238
+Rails3 で twtter bootstrap と ページネイトの kaminari を使うと表示が崩れる件
+http://d.hatena.ne.jp/CortYuming/20120201/p1
+Railsのページネイト『kaminari』速攻チュートリアル的なやーつ
+http://d.hatena.ne.jp/CortYuming/20120313/p1
+bootstrapでKaminariを使ってpaginateする
+http://qiita.com/items/bec13691cb6533329394
+
+http://twitter.github.com/bootstrap/components.html#misc
+
+filterで
+redirect_to :action, :hoge=>"hogehoge"
+だと
+/action/?hoge="hogehoge"
+
+
+実験
+a\r\n
+b\r\n
+c
+をdecument.writeするだめか・・・
+くぉーとできる手段は？
+
+トランザクションについて調べる
+
+設定ファイル系を探る
+en.ymlの秘密
+→エラーメッセージの英字をなんとかする
+
+gemを新規に追加した場合はサーバー再起動必要
+
+
+Rails 3で使用する場合は、Gemfileの中に記述の追加が必要
+
+

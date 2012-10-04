@@ -1,7 +1,18 @@
 <div align="center">
 <h1>掲示板</h1>
 <hr width="90%">
-  errors exists ? : <%= @message.errors.present? %>
+  <%= alert %>
+  <%= notice %>
+  <% errors = flash[:message].errors if flash[:message].present? %>
+  <% unless errors.blank? %>
+    <div id="error_explanation">
+      <ul>
+      <% errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <hr width="90%">
 </div>
 <blockquote>
@@ -49,6 +60,7 @@
 <dt><hr>
 </dl>
 
+<%= paginate @messages %>
 
 <%= form_for(@message, :html => {:method => :delete}) do |m| %>
 記事No<%= m.text_field :no, :size => '3' %>
