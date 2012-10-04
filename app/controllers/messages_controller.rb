@@ -64,7 +64,8 @@ class MessagesController < ApplicationController
   def show
 
     @message = Message.find(params[:id])
-
+    @message.comment = ERB::Util.html_escape(@message.comment)
+    logger.debug ERB::Util.html_escape(@message.comment)
     render
 
   end
@@ -73,7 +74,10 @@ class MessagesController < ApplicationController
   # is request ajax ?
   def ajax_request?
 
-    redirect_to :action => 'index' unless request.xhr?
+    unless request.xhr?
+      logger.debug "request is not ajax"
+      redirect_to :action => 'index'
+    end
 
   end
 

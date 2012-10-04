@@ -43,7 +43,7 @@
 <% @messages.each do |message| %>
 <dt><hr>[<b><%= message.no %></b>] <b class="subcol"><%= message.sub %></b>
 投稿者：<b><a href="mailto:<%= message.email %>" target="_blank"><%= message.name %><a></b> 投稿日：<%= message.created_at.strftime('%Y/%m/%d(%a) %H:%M') %> &nbsp; [<%= link_to '返信', message, :remote=>true %>]</dt>
-<dd><%= message.comment %></dd>
+<dd><%= simple_format(h message.comment) %></dd>
 <% end %>
 
 <dt><hr>
