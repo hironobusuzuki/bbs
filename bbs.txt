@@ -21,18 +21,8 @@ rails dbconsole development
 rails dbconsole test
 rails dbconsole production
 rake db:migrate RAILS_ENV=test
-
-id:integer→自動
-no:integer
-name:string
-email:string
-sub:string
-comment:string
-host:string
-pwd:string
-delflg:boolean
-created_on:timestamp→自動
-updated_on:timestamp→自動
+rails console
+exit
 
 
 http://blog.livedoor.jp/satoyansoft/archives/65452377.html
@@ -107,4 +97,9 @@ gemを新規に追加した場合はサーバー再起動必要
 
 Rails 3で使用する場合は、Gemfileの中に記述の追加が必要
 
+これからTwitter Bootstrapをはじめる人のためのエントリまとめ
+http://d.hatena.ne.jp/replication/20120226/1330224012
+Twitter bootstrap入門 #twtr_hack
+http://www.slideshare.net/makingx/twitter-bootstrap
 
+http://kinjo.github.com/ojag-rails/※

@@ -1,69 +1,160 @@
-<div align="center">
-<h1>掲示板</h1>
-<hr width="90%">
-  <%= alert %>
-  <%= notice %>
-  <% errors = flash[:message].errors if flash[:message].present? %>
-  <% unless errors.blank? %>
-    <div id="error_explanation">
-      <ul>
-      <% errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<hr width="90%">
-</div>
-<blockquote>
+<!-- TODO メタ文字、XSS対応 -->
+	<!-- Navbar
+	================================================== -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+	      <a class="brand" href="#">掲示板</a>
+	      <div class="nav-collapse collapse">
+	        <ul class="nav">
+	          <li class="active"><a href="#">Home</a></li>
+	          <li><a href="#about">留意事項</a></li>
+	          <li><a href="#search">ワード検索</a></li>
+	          <li><a href="#admin">管理用</a></li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	    </div>
+	  </div>
+	</div>
 
+	<div class="container">
 
-<%= form_for(@message) do |m| %>
-<table class="regfm">
-<tr>
-	<th>おなまえ</th>
-	<td><%= m.text_field :name, :size => '28' %></td>
-</tr><tr>
-	<th>Ｅメール</th>
-	<td><%= m.text_field :email, :size => '28' %></td>
-</tr><tr>
-	<th>タイトル</th>
-	<td>
-    	<%= m.text_field :sub, :size => '36', :id=>'sub' %>
-    	<%= m.submit "送信する" %><input type="reset" value="リセット">
-  </td>
-</tr><tr>
-	<th colspan="2">
-    	メッセージ<br>
-		<%= m.text_area :comment, :size => "56x7", :id=>'comment' %>
-	</th>
-</tr><tr>
-	<th>削除キー</th>
-	<td class="small">
-		<%= m.password_field :pwd, :size => '8', :maxlength => '8' %>
-		(英数字で8文字以内)
-	</td>
-</tr>
-</table>
-<% end %>
-</blockquote>
+	    <!-- Main
+	    ================================================== -->
+		<div class="row">
+			<div class="hero-unit">
+				<h3>掲示板</h3>
+				<p>Ruby on RailsとBootstrap によるシンプルな掲示板です。</p>
+			</div>
+		</div>
 
+		<!-- Message Area Start -->
+		<div class="row">
 
-<dl class="log">
+			<!-- Error Area Start -->
+			<% errors = flash[:message].errors if flash[:message].present? %>
+			<% if errors.present? %>
+				<div class="alert alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+                    以下のエラーが発生しました。
+					<ul>
+						<% errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<!-- Error Area End-->
 
-<% @messages.each do |message| %>
-<dt><hr>[<b><%= message.no %></b>] <b class="subcol"><%= message.sub %></b>
-投稿者：<b><a href="mailto:<%= message.email %>" target="_blank"><%= message.name %><a></b> 投稿日：<%= message.created_at.strftime('%Y/%m/%d(%a) %H:%M') %> &nbsp; [<%= link_to '返信', message, :remote=>true %>]</dt>
-<dd><%= simple_format(h message.comment) %></dd>
-<% end %>
+			<!-- Alert Area Start -->
+			<% if alert.present? %>
+				<div class="alert">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<%= alert %>
+				</div>
+			<% end %>
+			<!-- Alert Area End-->
 
-<dt><hr>
-</dl>
+			<!-- Infomartion Area Start -->
+			<% if notice.present? %>
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<%= notice %>
+				</div>
+			<% end %>
+			<!-- Infomartion Area End -->
 
-<%= paginate @messages %>
+		</div>
+		<!-- Message Area End -->
 
-<%= form_for(@message, :html => {:method => :delete}) do |m| %>
-記事No<%= m.text_field :no, :size => '3' %>
-削除キー<%= m.password_field :pwd, :size => '8', :maxlength => '8' %>
-<%= m.submit "削除"  %>
-<% end %>
+		<!-- Post Form Area Start -->
+		<div class="row">
+
+			<%= form_for(@message, :html => {:class => "form-horizontal"}) do |m| %>
+				<legend><strong>投稿フォーム</strong></legend>
+				<div class="control-group">
+					<label class="control-label" for="name">おなまえ</label>
+					<div class="controls">
+						<%= m.text_field :name, :id=>"name", :placeholder=>"おなまえ", :size => "28" %>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="email">Ｅメール</label>
+					<div class="controls">
+						<%= m.text_field :email, :id=>"email", :placeholder=>"Ｅメール", :size => "28" %>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="sub">タイトル</label>
+					<div class="controls">
+						<%= m.text_field :sub, :id=>"sub", :placeholder=>"タイトル", :size => "36", :class=>"input-xlarge" %>
+						<%= m.submit "送信する", :class=>"btn btn-primary" %><input type="reset" value="リセット" class="btn	">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="comment">メッセージ</label>
+					<div class="controls">
+						<%= m.text_area :comment, :rows => "3", :id=>'comment', :placeholder=>"メッセージ", :class=>"input-xxlarge" %>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="pwd">削除キー</label>
+					<div class="controls">
+						<%= m.password_field :pwd, :id=>"pwd", :size => "8", :maxlength => "8", :placeholder=>"削除キー", :class=>"input-mini" %>(英数字で8文字以内)
+					</div>
+				</div>
+			<% end %>
+
+		</div>
+		<!-- Post Form Area End -->
+
+		<!-- List Area Start -->
+		<div class="row">
+			<legend><strong>投稿内容</strong></legend>
+			<dl>
+				<% @messages.each do |message| %>
+					<dt>
+						[<strong><%= message.no %></strong>] <strong><%= message.sub %></strong>&nbsp;
+						投稿者：<strong><a href="mailto:<%= message.email %>" target="_blank"><%= message.name %></a></strong>&nbsp;
+						投稿日：<%= message.created_at.strftime('%Y/%m/%d(%a) %H:%M') %> &nbsp;
+						[<%= link_to '返信', message, :remote=>true %>]
+					</dt>
+					<dd>
+						<%= simple_format(h message.comment) %>
+					</dd>
+					<hr>
+				<% end %>
+			</dl>
+			<!-- Pagenation Area Start -->
+			<%= paginate @messages %>
+			<!-- Pagenation Area End -->
+		</div>
+		<!-- List Area End -->
+
+		<!-- Delete Form Area Start -->
+		<div class="row">
+			<%= form_for(@message, :html => {:method => :delete, :class=>"form-inline"}) do |m| %>
+				<label class="control-label" for="no">記事No<%= m.text_field :no, :id=>"no", :placeholder=>"記事No", :class=>"input-mini" %></label>
+				<label class="control-label" for="delPwd">削除キー<%= m.password_field :pwd, :id=>"delPwd", :maxlength => "8", :placeholder=>"削除キー", :class=>"input-mini" %></label>
+				<%= m.submit "削除", :class=>"btn btn-inverse"  %>
+			<% end %>
+		</div>
+		<!-- Delete Form Area End -->
+
+	    <!-- Footer
+	    ================================================== -->
+		<div class="row">
+			<footer>
+	      	<hr>
+				<p>&copy; CopyRight 2012</p>
+			</footer>
+		</div>
+
+    </div>  <!-- /container -->
+
+<!-- EOF -->

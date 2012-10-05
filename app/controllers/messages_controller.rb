@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
   # GET /messages
   def index
 
-    @messages = Message.where(:delflg => false).page(params[:page])
+    @messages = Message.where(:delflg => false).order("no desc").page(params[:page])
     @message = Message.new
 
   end
@@ -47,15 +47,12 @@ class MessagesController < ApplicationController
       message = Message.find(:first, :conditions => {:delflg => false, :no =>params[:message]["no"]}, :lock => true)
       Message.update(message.id, :delflg => true, :no => nil)
 
-      messages = Message.find(:all, :conditions => {:delflg => false}, :order=>"no")
+      messages = Message.find(:all, :conditions => {:delflg => false}, :order=>"id")
+
       i = 1
       messages.each do |message|
-        message.no = i
+        Message.update(message.id, :no => i)
         i += 1
-	  end
-
-      messages.each do |message|
-        Message.update(message.id, :no => message.no)
       end
 
     end
@@ -114,7 +111,7 @@ class MessagesController < ApplicationController
     unless Message.authenticate(pwd, no)
 
       logger.info "[alert]not authenticated"
-      flash[:alert] = "認証できません。"
+      flash[:alert] = "削除キーが不正です。"
       redirect_to :action => 'index'
 
     end

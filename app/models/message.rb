@@ -17,7 +17,6 @@ class Message < ActiveRecord::Base
   NO_SUB = "無題"
 
   # pagenator default
-  default_scope :order => 'no desc'
   paginates_per 5
 
   # method

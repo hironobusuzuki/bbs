@@ -1,17 +1,27 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="content-script-type" content="text/javascript">
-<meta http-equiv="content-style-type" content="text/css">
-<%= stylesheet_link_tag    "messages" %>
-<%= javascript_include_tag "jquery.js", "jquery_ujs.js" %>
-<%= csrf_meta_tags %>
-<title>掲示板</title>
-</head>
-<body>
 
-<%= yield %>
+	<head>
 
-</body>
+    	<!-- Le meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<meta http-equiv="content-style-type" content="text/css">
+
+    	<!-- Le styles -->
+		<%= stylesheet_link_tag "bootstrap.min" %>
+		<%= csrf_meta_tags %>
+		<title>掲示板</title>
+	</head>
+
+	<body>
+
+		<%= yield %>
+
+	    <!-- Le javascript -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+		<%= javascript_include_tag "jquery.js", "jquery_ujs.js", "bootstrap.min.js" %>
+
+	</body>
+
 </html>

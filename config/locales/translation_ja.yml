@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      message: "メッセージ"
+
+    attributes:
+      message:
+        comment: "メッセージ"
+        delflg: "削除フラグ"
+        email: "Ｅメール"
+        host: "ホスト"
+        name: "おなまえ"
+        no: "投稿番号"
+        pwd: "削除キー"
+        sub: "タイトル"
+
+    errors:
+      messages:
+        invalid: "が不正な値です。"

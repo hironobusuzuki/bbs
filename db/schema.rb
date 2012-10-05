@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004130131) do
+ActiveRecord::Schema.define(:version => 20121005054256) do
 
   create_table "messages", :force => true do |t|
     t.string   "name",       :null => false
@@ -25,7 +25,5 @@ ActiveRecord::Schema.define(:version => 20121004130131) do
     t.datetime "updated_at", :null => false
     t.integer  "no"
   end
-
-  add_index "messages", ["no"], :name => "index_messages_on_no", :unique => true
 
 end
