@@ -103,3 +103,13 @@ Twitter bootstrapì¸ñÂ #twtr_hack
 http://www.slideshare.net/makingx/twitter-bootstrap
 
 http://kinjo.github.com/ojag-rails/Å¶
+
+http://webos-goodies.jp/archives/50741819.html
+http://d.hatena.ne.jp/challengeRoR/20090906/1252290348
+http://qiita.com/items/bec13691cb6533329394
+http://kinjo.github.com/ojag-rails/
+http://yasuhirode.com/%E5%88%9D%E5%BF%83%E8%80%85%E5%BF%85%E8%A6%8Btwitter-bootstrap-%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/
+http://www.slideshare.net/makingx/twitter-bootstrap
+http://twitter.github.com/bootstrap/base-css.html
+http://d.hatena.ne.jp/end0tknr/20111016/1318729659
+http://d.hatena.ne.jp/replication/20120226/1330224012
